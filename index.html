@@ -9,6 +9,14 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
+    <script type="importmap">
+    {
+      "imports": {
+        "three": "https://unpkg.com/three@0.160.0/build/three.module.js"
+      }
+    }
+    </script>
+    <script type="module" src="script.js" defer></script>
 </head>
 <body>
     <!-- Navigation -->
@@ -29,21 +37,22 @@
     </header>
 
     <!-- Hero Section -->
-    <section class="hero">
+    <section class="hero" data-scene="hero">
         <div class="hero-bg"></div>
+        <canvas id="hero-canvas" class="hero-canvas" aria-hidden="true"></canvas>
         <div class="hero-container">
             <div class="hero-content">
-                <span class="eyebrow">Maison de Couture · Antananarivo</span>
-                <h1 class="hero-title">Kaliana</h1>
-                <p class="hero-tagline">Robes brodées &amp; smockées<br><em>traditionnelles malgaches.</em></p>
-                <p class="hero-sub">L'élégance dans chaque point, la magie dans chaque robe. Smocks intemporels, broderies délicates, savoir-faire d'Antananarivo.</p>
-                <div class="hero-cta">
+                <span class="eyebrow reveal" data-reveal-delay="0">Maison de Couture · Antananarivo</span>
+                <h1 class="hero-title reveal" data-reveal-delay="80">Kaliana</h1>
+                <p class="hero-tagline reveal" data-reveal-delay="180">Robes brodées &amp; smockées<br><em>traditionnelles malgaches.</em></p>
+                <p class="hero-sub reveal" data-reveal-delay="260">L'élégance dans chaque point, la magie dans chaque robe. Smocks intemporels, broderies délicates, savoir-faire d'Antananarivo.</p>
+                <div class="hero-cta reveal" data-reveal-delay="340">
                     <a href="#devis" class="btn btn-primary btn-large">Demander un devis</a>
                     <a href="#collection" class="btn btn-ghost btn-large">Découvrir la collection</a>
                 </div>
             </div>
-            <div class="hero-image">
-                <div class="hero-image-frame">
+            <div class="hero-image reveal reveal-right" data-reveal-delay="200">
+                <div class="hero-image-frame" data-parallax="0.06">
                     <img src="https://images.unsplash.com/photo-1503944583220-79d8926ad5e2?auto=format&fit=crop&w=1200&q=80" alt="Robe d'enfant smockée et brodée à la main">
                     <div class="hero-image-badge">
                         <span class="badge-line">Atelier</span>
@@ -73,17 +82,17 @@
     <section class="values">
         <div class="container">
             <div class="values-grid">
-                <div class="value">
+                <div class="value reveal" data-reveal-delay="0">
                     <span class="value-num">01</span>
                     <h3>Fait main</h3>
                     <p>Chaque point, chaque smock et chaque broderie sont réalisés à la main dans notre atelier d'Antananarivo.</p>
                 </div>
-                <div class="value">
+                <div class="value reveal" data-reveal-delay="120">
                     <span class="value-num">02</span>
                     <h3>Tradition malgache</h3>
                     <p>Un savoir-faire de broderie et de smock transmis de génération en génération à Madagascar.</p>
                 </div>
-                <div class="value">
+                <div class="value reveal" data-reveal-delay="240">
                     <span class="value-num">03</span>
                     <h3>Pièces uniques</h3>
                     <p>Des créations sur mesure pensées pour les moments précieux de l'enfance et destinées à durer.</p>
@@ -95,14 +104,14 @@
     <!-- Collection / Showcase -->
     <section class="collection" id="collection">
         <div class="container">
-            <div class="section-head">
+            <div class="section-head reveal">
                 <span class="eyebrow eyebrow-dark">La Collection</span>
                 <h2 class="section-title">Trois signatures<br><em>de la maison</em></h2>
                 <p class="section-lead">Une sélection de robes brodées et smockées, où la tradition malgache rencontre la finesse contemporaine. Chaque pièce est réalisée à la main, sur commande.</p>
             </div>
 
             <div class="dresses-grid">
-                <article class="dress-card">
+                <article class="dress-card reveal" data-reveal-delay="0">
                     <div class="dress-image">
                         <img src="https://images.unsplash.com/photo-1518806118471-f28b20a1d79d?auto=format&fit=crop&w=900&q=80" alt="Robe Antsofy smockée">
                     </div>
@@ -114,7 +123,7 @@
                     </div>
                 </article>
 
-                <article class="dress-card">
+                <article class="dress-card reveal" data-reveal-delay="140">
                     <div class="dress-image">
                         <img src="https://images.unsplash.com/photo-1519278409-1f56fdda7fe5?auto=format&fit=crop&w=900&q=80" alt="Robe Voara à broderie florale">
                         <span class="dress-tag">Édition limitée</span>
@@ -127,7 +136,7 @@
                     </div>
                 </article>
 
-                <article class="dress-card">
+                <article class="dress-card reveal" data-reveal-delay="280">
                     <div class="dress-image">
                         <img src="https://images.unsplash.com/photo-1566150905458-1bf1fc113f0d?auto=format&fit=crop&w=900&q=80" alt="Robe Felana de cérémonie">
                     </div>
@@ -145,14 +154,14 @@
     <!-- Savoir-faire / Story -->
     <section class="story" id="savoir-faire">
         <div class="container story-grid">
-            <div class="story-image">
+            <div class="story-image reveal">
                 <img src="https://images.unsplash.com/photo-1558769132-cb1aea458c5e?auto=format&fit=crop&w=1000&q=80" alt="Atelier de broderie à la main">
                 <div class="story-stat">
                     <span class="stat-num">120+</span>
                     <span class="stat-label">heures de travail par robe d'exception</span>
                 </div>
             </div>
-            <div class="story-content">
+            <div class="story-content reveal" data-reveal-delay="160">
                 <span class="eyebrow eyebrow-dark">Savoir-faire</span>
                 <h2 class="section-title">Un atelier au cœur<br><em>d'Antananarivo</em></h2>
                 <p>Depuis Antananarivo, Kaliana cultive une couture lente, précise et profondément humaine. Nos brodeuses transmettent un patrimoine rare : le smock traditionnel malgache, la broderie florale main, l'art du fini impeccable.</p>
@@ -169,14 +178,14 @@
     <!-- Services -->
     <section class="services" id="services">
         <div class="container">
-            <div class="section-head section-head-center">
+            <div class="section-head section-head-center reveal">
                 <span class="eyebrow">Nos Services</span>
                 <h2 class="section-title section-title-light">L'atelier<br><em>à votre écoute</em></h2>
                 <p class="section-lead section-lead-light">Trois métiers d'art au service d'une garde-robe d'exception pour vos enfants.</p>
             </div>
 
             <div class="services-grid">
-                <div class="service-card">
+                <div class="service-card reveal" data-reveal-delay="0">
                     <div class="service-icon" aria-hidden="true">
                         <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M8 40L24 8L40 40" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
@@ -189,7 +198,7 @@
                     <a href="#devis" class="service-link">Réserver un rendez-vous</a>
                 </div>
 
-                <div class="service-card service-card-accent">
+                <div class="service-card service-card-accent reveal" data-reveal-delay="140">
                     <div class="service-icon" aria-hidden="true">
                         <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M24 8C28 14 34 16 40 16C34 22 32 28 32 32C28 28 22 26 18 28C20 22 22 16 24 8Z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/>
@@ -201,7 +210,7 @@
                     <a href="#devis" class="service-link">Composer ma robe</a>
                 </div>
 
-                <div class="service-card">
+                <div class="service-card reveal" data-reveal-delay="280">
                     <div class="service-icon" aria-hidden="true">
                         <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M24 6C16 6 10 12 10 20C10 28 16 34 24 42C32 34 38 28 38 20C38 12 32 6 24 6Z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/>
@@ -220,7 +229,7 @@
     <!-- Quote / CTA banner -->
     <section class="quote-cta" id="devis">
         <div class="container quote-grid">
-            <div class="quote-content">
+            <div class="quote-content reveal">
                 <span class="eyebrow eyebrow-dark">Devis personnalisé</span>
                 <h2 class="section-title">Donnez vie à<br><em>une pièce sur mesure</em></h2>
                 <p>Décrivez-nous l'occasion, les matières que vous aimez, la silhouette rêvée. Notre maison vous répond sous 48 heures avec une proposition d'atelier et un devis détaillé.</p>
@@ -229,7 +238,7 @@
                     <a href="tel:+261201234567" class="btn btn-outline btn-large">+261 20 12 345 67</a>
                 </div>
             </div>
-            <div class="quote-card">
+            <div class="quote-card reveal reveal-right" data-reveal-delay="160">
                 <div class="quote-card-inner">
                     <p class="quote-mark">“</p>
                     <p class="quote-text">L'élégance dans chaque point, la magie dans chaque robe.</p>
